@@ -22,11 +22,11 @@
             <ImageView
                 android:id="@+id/moviePoster"
                 android:layout_width="match_parent"
-                android:layout_height="479dp"
-                android:contentDescription="Poster"
-                android:scaleType="centerCrop"
+                android:layout_height="388dp"
                 android:background="@drawable/rounded_poster"
-                android:clipToOutline="true" />
+                android:clipToOutline="true"
+                android:contentDescription="@string/poster"
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:id="@+id/movieTitle"
@@ -47,6 +47,22 @@
 
             <TextView
                 android:id="@+id/movieRating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/studio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:id="@+id/imdbRating"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#FFFFFF"
@@ -75,14 +91,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Back" />
+            android:text="@string/back" />
 
         <Button
             android:id="@+id/btnAddToFav"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add to Favourites"
+            android:text="@string/add_to_favorites"
             android:layout_marginStart="8dp" />
     </LinearLayout>
 </LinearLayout>

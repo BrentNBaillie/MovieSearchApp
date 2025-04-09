@@ -1,4 +1,6 @@
 package com.example.moviesearchapp.api;
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.example.moviesearchapp.model.Movie;
@@ -27,7 +29,6 @@ public class API
     {
         @GET("/")
         Call<Search> searchMovies(@Query("apikey") String apiKey, @Query("s") String query);
-
         @GET("/")
         Call<Movie> getMovie(@Query("apikey") String apiKey, @Query("i") String imdbID);
     }
@@ -44,7 +45,7 @@ public class API
     public LiveData<List<Movie>> search(String query)
     {
         movies = new MutableLiveData<>();
-        route.searchMovies(key, query).enqueue(new Callback<>()
+        route.searchMovies(key, query).enqueue(new Callback<Search>()
         {
             @Override
             public void onResponse(Call<Search> call, Response<Search> response)
@@ -71,7 +72,7 @@ public class API
     public LiveData<Movie> getMovieDetails(String imdbId)
     {
         movieDetail = new MutableLiveData<>();
-        route.getMovie(key, imdbId).enqueue(new Callback<>()
+        route.getMovie(key, imdbId).enqueue(new Callback<Movie>()
         {
             @Override
             public void onResponse(Call<Movie> call, Response<Movie> response)

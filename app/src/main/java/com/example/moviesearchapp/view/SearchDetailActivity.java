@@ -1,6 +1,7 @@
 package com.example.moviesearchapp.view;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -36,11 +37,14 @@ public class SearchDetailActivity extends AppCompatActivity
 
         viewModel.getMovieDetails(imdbID).observe(this, detail ->
         {
+
             if (detail != null)
             {
                 binding.movieTitle.setText(detail.Title);
                 binding.movieYear.setText("Year: " + detail.Year);
                 binding.movieRating.setText("Rating: " + detail.Rating);
+                binding.studio.setText("Studio: " + (detail.Studio == null ? "N/A" : detail.Studio));
+                binding.imdbRating.setText("IMDB Rating: " + (detail.ImdbRating == null ? "N/A" : detail.ImdbRating));
                 binding.moviePlot.setText(detail.Plot);
                 Glide.with(this).load(detail.Poster).into(binding.moviePoster);
 
@@ -66,6 +70,8 @@ public class SearchDetailActivity extends AppCompatActivity
                                                 m.Year = (String) map.get("Year");
                                                 m.Rating = (String) map.get("Rating");
                                                 m.Plot = (String) map.get("Plot");
+                                                m.Studio = (String) map.get("Production");
+                                                m.ImdbRating = (String) map.get("imdbRating");
                                                 m.Poster = (String) map.get("Poster");
                                                 movies.add(m);
                                             }
@@ -86,12 +92,12 @@ public class SearchDetailActivity extends AppCompatActivity
                                             movies.add(detail);
                                             FirebaseFirestore.getInstance().collection("users").document(userId)
                                                     .update("movies", movies)
-                                                    .addOnSuccessListener(unused -> Toast.makeText(this, "Added to favourites", Toast.LENGTH_SHORT).show())
-                                                    .addOnFailureListener(error -> Toast.makeText(this, "Failed to add: " + error.getMessage(), Toast.LENGTH_SHORT).show());
+                                                    .addOnSuccessListener(unused -> Toast.makeText(this, "Added to Favorites!", Toast.LENGTH_SHORT).show())
+                                                    .addOnFailureListener(error -> Toast.makeText(this, "Failed to Add: " + error.getMessage(), Toast.LENGTH_SHORT).show());
                                         }
                                         else
                                         {
-                                            Toast.makeText(this, "Movie is in favourites", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(this, "Movie is already in Favorites!", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });

@@ -44,6 +44,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
         movie = movies.get(position);
         viewHolder.title.setText(movie.Title);
         viewHolder.year.setText(movie.Year);
+        viewHolder.rating.setText(movie.Rating);
         Glide.with(viewHolder.itemView.getContext()).load(movie.Poster).into(viewHolder.poster);
         api.getMovieDetails(movie.ImdbID);
     }
@@ -76,6 +77,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>
             super(view);
             title = view.findViewById(R.id.title_txt);
             year = view.findViewById(R.id.year_txt);
+            //studio = view.findViewById(R.id.studio);
+            //imdbRating = view.findViewById(R.id.imdbRating);
             rating = view.findViewById(R.id.rating_txt);
             poster = view.findViewById(R.id.poster_img);
             view.setOnClickListener(v -> listener.onItemClick(v, getAdapterPosition()));
