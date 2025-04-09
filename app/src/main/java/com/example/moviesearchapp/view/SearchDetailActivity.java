@@ -1,18 +1,14 @@
 package com.example.moviesearchapp.view;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.bumptech.glide.Glide;
 import com.example.moviesearchapp.databinding.MovieDetailsBinding;
 import com.example.moviesearchapp.model.Movie;
 import com.example.moviesearchapp.viewmodel.MovieDetailViewModel;
 import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
