@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "65736216064",
+    "project_id": "assignment3-af118",
+    "storage_bucket": "assignment3-af118.firebasestorage.app"
+  },
+  "client": [
+    
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65736216064:android:56bca118ce04a9cbbbd2e5",
+        "android_client_info": {
+          "package_name": "com.example.moviesearchapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWYMwYaIrppg6kAs9AivXUzCeq_1ZRtkk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
