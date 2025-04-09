@@ -18,7 +18,6 @@ public class RegisterActivity extends AppCompatActivity
     private TextInputEditText userName;
     private TextInputEditText userPassword;
     private Button btnRegister;
-    private Button btnBackToLogin;
     private FirebaseFirestore firebase;
     private String inputUsername;
     private String inputPassword;
@@ -36,12 +35,6 @@ public class RegisterActivity extends AppCompatActivity
         userName = findViewById(R.id.userName);
         userPassword = findViewById(R.id.userPassword);
         btnRegister = findViewById(R.id.btnRegister);
-
-        btnBackToLogin = findViewById(R.id.btnBackToLogin);
-        if (btnBackToLogin != null)
-        {
-            btnBackToLogin.setOnClickListener(v -> finish());
-        }
 
         btnRegister.setOnClickListener(v ->
         {
@@ -71,8 +64,8 @@ public class RegisterActivity extends AppCompatActivity
                             firebase.collection("users").add(user)
                                     .addOnSuccessListener(documentReference ->
                                     {
-                                        Toast.makeText(this, "User registered", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(this, SearchActivity.class));
+                                        Toast.makeText(this, "User registered. Please log in.", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(this, LoginActivity.class));
                                         finish();
                                     })
                                     .addOnFailureListener(e ->
