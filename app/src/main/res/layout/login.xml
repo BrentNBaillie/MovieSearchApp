@@ -8,6 +8,10 @@
     android:layout_height="match_parent"
     tools:context=".view.LoginActivity">
 
+
+
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/userNameInputLayout"
         android:layout_width="0dp"

@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity
                         if (!querySnapshot.isEmpty())
                         {
                             userId = querySnapshot.getDocuments().get(0).getId();
-                            Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
                             intent = new Intent(LoginActivity.this, SearchActivity.class);
                             intent.putExtra("userId", userId);
                             startActivity(intent);
@@ -61,11 +61,11 @@ public class LoginActivity extends AppCompatActivity
                         }
                         else
                         {
-                            Toast.makeText(this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(e -> {
-                        Toast.makeText(this, "Login failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Login Failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     });
         });
 

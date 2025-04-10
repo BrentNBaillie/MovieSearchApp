@@ -64,13 +64,13 @@ public class RegisterActivity extends AppCompatActivity
                             firebase.collection("users").add(user)
                                     .addOnSuccessListener(documentReference ->
                                     {
-                                        Toast.makeText(this, "User registered. Please log in.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(this, "User Registered! Please log in.", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(this, LoginActivity.class));
                                         finish();
                                     })
                                     .addOnFailureListener(e ->
                                     {
-                                        Toast.makeText(this, "Failed to register: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                        Toast.makeText(this, "Failed to Register: " + e.getMessage(), Toast.LENGTH_LONG).show();
                                     });
                         }
                     })
