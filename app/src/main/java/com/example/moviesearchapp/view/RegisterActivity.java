@@ -18,9 +18,11 @@ public class RegisterActivity extends AppCompatActivity
     private TextInputEditText userName;
     private TextInputEditText userPassword;
     private Button btnRegister;
+    private Button btnBackToLogin;
     private FirebaseFirestore firebase;
     private String inputUsername;
     private String inputPassword;
+    private Intent intent;
     private Map<String, Object> user;
 
     @Override
@@ -35,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity
         userName = findViewById(R.id.userName);
         userPassword = findViewById(R.id.userPassword);
         btnRegister = findViewById(R.id.btnRegister);
+        btnBackToLogin = findViewById(R.id.btnBackToLogin);
 
         btnRegister.setOnClickListener(v ->
         {
@@ -79,5 +82,12 @@ public class RegisterActivity extends AppCompatActivity
                         Toast.makeText(this, "Error finding username: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                     });
         });
+
+        btnBackToLogin.setOnClickListener(v ->
+        {
+            intent = new Intent(RegisterActivity.this, LoginActivity.class);
+            startActivity(intent);
+        });
+
     }
 }
